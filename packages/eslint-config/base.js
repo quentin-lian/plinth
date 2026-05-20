@@ -1,32 +1,32 @@
-import js from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
-import turboPlugin from "eslint-plugin-turbo";
-import tseslint from "typescript-eslint";
-import onlyWarn from "eslint-plugin-only-warn";
+import js from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 /**
- * A shared ESLint configuration for the repository.
- *
+ * 通用基础配置：JS + TS + 与 Prettier 兼容
  * @type {import("eslint").Linter.Config[]}
- * */
-export const config = [
+ */
+export default tseslint.config(
   js.configs.recommended,
-  eslintConfigPrettier,
   ...tseslint.configs.recommended,
   {
-    plugins: {
-      turbo: turboPlugin,
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: { ...globals.browser, ...globals.node },
     },
     rules: {
-      "turbo/no-undeclared-env-vars": "warn",
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
   {
-    plugins: {
-      onlyWarn,
-    },
+    ignores: ['dist/**', 'build/**', '.next/**', 'out/**', 'node_modules/**'],
   },
-  {
-    ignores: ["dist/**"],
-  },
-];
+  eslintConfigPrettier,
+);
