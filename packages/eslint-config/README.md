@@ -4,13 +4,13 @@ Monorepo 共享的 ESLint v9 flat config。所有 plugin 已作为 `dependencies
 
 ## 入口
 
-| 入口                          | 适用场景                                |
-| ----------------------------- | --------------------------------------- |
-| `@repo/eslint-config/base`    | 通用 JS/TS 库、Node 脚本，无框架        |
-| `@repo/eslint-config/react`   | React 应用/库（含 hooks + jsx-a11y）    |
-| `@repo/eslint-config/next`    | Next.js 应用（在 react 之上加 Next 规则）|
-| `@repo/eslint-config/vue`     | Vue 3 应用（`<script lang="ts">` 支持） |
-| `@repo/eslint-config/node`    | Node.js 服务/CLI（仅 node globals）     |
+| 入口                        | 适用场景                                  |
+| --------------------------- | ----------------------------------------- |
+| `@repo/eslint-config/base`  | 通用 JS/TS 库、Node 脚本，无框架          |
+| `@repo/eslint-config/react` | React 应用/库（含 hooks + jsx-a11y）      |
+| `@repo/eslint-config/next`  | Next.js 应用（在 react 之上加 Next 规则） |
+| `@repo/eslint-config/vue`   | Vue 3 应用（`<script lang="ts">` 支持）   |
+| `@repo/eslint-config/node`  | Node.js 服务/CLI（仅 node globals）       |
 
 ## 使用
 

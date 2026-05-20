@@ -1,12 +1,14 @@
 {
   "name": "bitfe-infra",
   "private": true,
+  "packageManager": "pnpm@10.0.0",
   "prettier": "@repo/prettier-config",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,js,mjs,cjs}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json,js,mjs,cjs}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
@@ -15,7 +17,6 @@
     "turbo": "^2.9.14",
     "typescript": "5.9.2"
   },
-
   "engines": {
     "node": ">=18"
   }
