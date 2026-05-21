@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,json,js,mjs,cjs}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md,json,js,mjs,cjs}\"",
     "check-types": "turbo run check-types",
+    "test": "turbo run test",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=./packages/* && changeset publish",

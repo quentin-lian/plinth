@@ -1,0 +1,70 @@
+{
+  "name": "@bitfe/test-config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./vitest": "./vitest.js",
+    "./vitest-react": "./vitest-react.js",
+    "./vitest-vue": "./vitest-vue.js",
+    "./setup-react": "./setup-react.js",
+    "./setup-vue": "./setup-vue.js"
+  },
+  "files": [
+    "*.js",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
+    "@testing-library/vue": "^8",
+    "@vitejs/plugin-react": "^4 || ^5",
+    "@vitejs/plugin-vue": "^5",
+    "@vitest/coverage-v8": "^2 || ^3",
+    "@vue/test-utils": "^2",
+    "jsdom": "^24 || ^25 || ^26",
+    "vitest": "^2 || ^3"
+  },
+  "peerDependenciesMeta": {
+    "@testing-library/jest-dom": {
+      "optional": true
+    },
+    "@testing-library/react": {
+      "optional": true
+    },
+    "@testing-library/vue": {
+      "optional": true
+    },
+    "@vitejs/plugin-react": {
+      "optional": true
+    },
+    "@vitejs/plugin-vue": {
+      "optional": true
+    },
+    "@vitest/coverage-v8": {
+      "optional": true
+    },
+    "@vue/test-utils": {
+      "optional": true
+    },
+    "jsdom": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/vue": "^8.1.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitest/coverage-v8": "^4.1.7",
+    "@vue/test-utils": "^2.4.10",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.7"
+  }
+}

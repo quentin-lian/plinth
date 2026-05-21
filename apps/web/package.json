@@ -10,7 +10,9 @@
     "lint": "eslint --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "prettier": "@bitfe/prettier-config",
   "dependencies": {
@@ -21,12 +23,20 @@
   "devDependencies": {
     "@bitfe/eslint-config": "workspace:*",
     "@bitfe/prettier-config": "workspace:*",
+    "@bitfe/test-config": "workspace:*",
     "@bitfe/typescript-config": "workspace:*",
+    "@testing-library/dom": "^10",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "^6",
+    "@vitest/coverage-v8": "^4",
     "eslint": "^9.39.1",
+    "jsdom": "^29",
     "prettier": "^3.7.4",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vitest": "^4"
   }
 }
