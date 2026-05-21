@@ -1,0 +1,4 @@
+# 在业务项目根放此文件，提交进 git
+# 让 @bitfe/* 走 GitHub Packages，token 用环境变量注入
+@bitfe:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
