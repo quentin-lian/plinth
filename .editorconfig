@@ -1,0 +1,19 @@
+# https://editorconfig.org
+# 不依赖编辑器插件，所有主流 IDE 内置识别
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Markdown 行尾保留两个空格表示换行
+[*.md]
+trim_trailing_whitespace = false
+
+# 部分官方推荐用 Tab 的格式
+[Makefile]
+indent_style = tab
