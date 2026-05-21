@@ -4,7 +4,8 @@
   "type": "module",
   "license": "MIT",
   "files": [
-    "*.js"
+    "*.js",
+    "README.md"
   ],
   "exports": {
     "./base": "./base.js",

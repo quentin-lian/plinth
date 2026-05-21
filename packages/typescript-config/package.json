@@ -2,6 +2,10 @@
   "name": "@bitfe/typescript-config",
   "version": "0.0.0",
   "license": "MIT",
+  "files": [
+    "*.json",
+    "README.md"
+  ],
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com"
