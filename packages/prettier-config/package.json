@@ -1,7 +1,6 @@
 {
-  "name": "@repo/prettier-config",
+  "name": "@bitfe/prettier-config",
   "version": "0.0.0",
-  "private": true,
   "license": "MIT",
   "type": "module",
   "main": "index.js",
@@ -18,6 +17,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }

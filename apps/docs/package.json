@@ -12,16 +12,16 @@
     "format:check": "prettier --check .",
     "check-types": "next typegen && tsc --noEmit"
   },
-  "prettier": "@repo/prettier-config",
+  "prettier": "@bitfe/prettier-config",
   "dependencies": {
     "next": "16.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/prettier-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@bitfe/eslint-config": "workspace:*",
+    "@bitfe/prettier-config": "workspace:*",
+    "@bitfe/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",

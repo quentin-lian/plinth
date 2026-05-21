@@ -1,4 +1,4 @@
-import base from '@repo/prettier-config';
+import base from '@bitfe/prettier-config';
 
 /** @type {import("prettier").Config} */
 export default {

@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/prettier-config-tailwind",
+  "name": "@bitfe/commitlint-config",
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
@@ -11,11 +11,10 @@
     "index.js"
   ],
   "peerDependencies": {
-    "prettier": "^3"
+    "@commitlint/cli": "^21"
   },
   "dependencies": {
-    "@bitfe/prettier-config": "workspace:*",
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "@commitlint/config-conventional": "^21.0.1"
   },
   "publishConfig": {
     "access": "restricted",
