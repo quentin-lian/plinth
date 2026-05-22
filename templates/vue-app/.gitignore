@@ -1,0 +1,26 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# build
+dist
+build
+*.tsbuildinfo
+
+# test
+coverage
+
+# misc
+.DS_Store
+*.log
+.eslintcache
+.turbo
+
+# editor
+.idea
+*.swp
+
+# env
+.env
+.env.*
+!.env.example
