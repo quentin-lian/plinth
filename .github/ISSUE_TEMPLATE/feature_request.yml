@@ -1,0 +1,40 @@
+name: 功能建议
+description: 建议新增能力 / 改进现有能力
+title: 'feat: '
+labels: ['enhancement']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想解决什么问题？
+      description: 先讲清楚痛点和场景，再讲方案。
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: API 设计、配置项、行为变化等。可以写多种备选。
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 已考虑的替代方案
+    validations:
+      required: false
+
+  - type: textarea
+    id: roadmap
+    attributes:
+      label: 与路线图的关系
+      description: 是否对应 docs/ROADMAP.md 中的某个 Phase / Backlog 条目？
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他信息

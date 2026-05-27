@@ -156,6 +156,60 @@ chmod +x .husky/commit-msg
 
 ---
 
+## 六、环境变量约定
+
+业务项目的运行时配置走 **环境变量**，不要硬编码到源码。
+
+### 文件分层
+
+| 文件                    | 用途                    | 是否进 git  |
+| ----------------------- | ----------------------- | ----------- |
+| `.env.example`          | schema / 占位，团队共享 | ✅ 进 git   |
+| `.env.local`            | 本地开发覆盖（含敏感）  | ❌ 不进 git |
+| `.env.production.local` | 生产构建本地覆盖        | ❌ 不进 git |
+
+`.gitignore` 必须保证：
+
+```
+.env
+.env.*
+!.env.example
+```
+
+模板已带样板，新业务项目复制 `.env.example` → `.env.local` 即可：
+
+```bash
+cp .env.example .env.local
+```
+
+### 命名规范
+
+- **Next.js**：仅 `NEXT_PUBLIC_*` 暴露到浏览器，其他默认仅服务端可读
+- **Vite/Vue**：仅 `VITE_*` 暴露到浏览器
+- **敏感信息**（DB 连接串、密钥、token）严禁加 `NEXT_PUBLIC_` / `VITE_` 前缀
+
+### 运行时校验（推荐）
+
+后续 `@bitfe/env` 会提供基于 zod 的运行时校验（启动时缺变量直接报错，避免线上裸奔）。当前阶段可在项目内手写：
+
+```ts
+import { z } from 'zod';
+
+const env = z
+  .object({
+    NEXT_PUBLIC_API_BASE_URL: z.string().url(),
+    DATABASE_URL: z.string().min(1),
+  })
+  .parse(process.env);
+```
+
+模板参考：
+
+- [templates/nextjs-app/.env.example](../templates/nextjs-app/.env.example)
+- [templates/vue-app/.env.example](../templates/vue-app/.env.example)
+
+---
+
 ## 常见问题
 
 **Q: `pnpm install` 报 401 / 403？**

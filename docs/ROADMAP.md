@@ -74,21 +74,21 @@
 
 #### 2.1 协作模板
 
-- [ ] [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) — PR 模板
-- [ ] [.github/ISSUE_TEMPLATE/](../.github/ISSUE_TEMPLATE/) — bug / feature / question 模板
-- [ ] [.github/CODEOWNERS](../.github/CODEOWNERS) — 关键路径自动 reviewer
-- [ ] [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南
-- [ ] [SECURITY.md](../SECURITY.md) — 安全披露策略
+- [x] [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) — PR 模板
+- [x] [.github/ISSUE_TEMPLATE/](../.github/ISSUE_TEMPLATE/) — bug / feature / question 模板
+- [x] [.github/CODEOWNERS](../.github/CODEOWNERS) — 关键路径自动 reviewer
+- [x] [CONTRIBUTING.md](../CONTRIBUTING.md) — 贡献指南
+- [x] [SECURITY.md](../SECURITY.md) — 安全披露策略
 
 #### 2.2 依赖治理
 
-- [ ] Renovate（推荐）或 Dependabot 配置：每周聚合 PR、自动 patch、major 单独通知
-- [ ] `pnpm audit` 接入 CI，高危漏洞阻断合并
+- [x] Renovate（推荐）或 Dependabot 配置：每周聚合 PR、自动 patch、major 单独通知
+- [x] `pnpm audit` 接入 CI，高危漏洞阻断合并
 - [ ] License 检查（`license-checker` 或 `pnpm licenses list`）
 
 #### 2.3 环境变量规范
 
-- [ ] 模板新增 `.env.example`
+- [x] 模板新增 `.env.example`
 - [ ] 引入 `@bitfe/env`：基于 zod 的运行时 env schema 校验
 
 **产出**：业务项目从"接入"到"长期维护"的协作链路自动化。

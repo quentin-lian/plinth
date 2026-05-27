@@ -1,0 +1,24 @@
+# 默认所有改动都 ping 平台前端核心维护者
+* @bitfe/frontend-core
+
+# 共享 ESLint / Prettier / TS 配置：影响所有业务项目，需谨慎评审
+/packages/eslint-config/         @bitfe/frontend-core @bitfe/lint-owners
+/packages/prettier-config/       @bitfe/frontend-core @bitfe/lint-owners
+/packages/prettier-config-tailwind/  @bitfe/frontend-core @bitfe/lint-owners
+/packages/typescript-config/     @bitfe/frontend-core @bitfe/ts-owners
+/packages/test-config/           @bitfe/frontend-core @bitfe/test-owners
+/packages/commitlint-config/     @bitfe/frontend-core
+
+# 模板：业务项目起点，需保证可运行 + 文档同步
+/templates/                      @bitfe/frontend-core @bitfe/template-owners
+
+# CI / Release / 工程化：仅平台维护者可改
+/.github/                        @bitfe/frontend-core
+/.changeset/                     @bitfe/frontend-core
+/turbo.json                      @bitfe/frontend-core
+/pnpm-workspace.yaml             @bitfe/frontend-core
+/package.json                    @bitfe/frontend-core
+
+# 文档
+/docs/                           @bitfe/frontend-core @bitfe/docs-owners
+/README.md                       @bitfe/frontend-core

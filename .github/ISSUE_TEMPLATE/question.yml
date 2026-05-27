@@ -1,0 +1,32 @@
+name: 提问 / 接入支持
+description: 业务项目接入 @bitfe/* 时的疑问
+title: 'question: '
+labels: ['question']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        在提问前，请先看一下 [docs/CONSUMING.md](https://github.com/bitfe/bitfe-infra/blob/master/docs/CONSUMING.md)。
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 你在做什么？
+      description: 业务项目栈、当前接入到哪一步、卡在哪。
+    validations:
+      required: true
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: 已经尝试过什么？
+    validations:
+      required: false
+
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      placeholder: 'Node 20.11 / pnpm 10.0 / macOS 14'
+    validations:
+      required: false

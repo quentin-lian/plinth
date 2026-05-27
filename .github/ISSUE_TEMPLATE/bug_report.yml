@@ -1,0 +1,75 @@
+name: Bug 报告
+description: 报告 @bitfe/* 包或模板的缺陷
+title: 'bug: '
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢提交 bug 报告。请尽量提供可复现的最小用例，能极大加速排查。
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: 涉及的包 / 模板
+      options:
+        - '@bitfe/eslint-config'
+        - '@bitfe/prettier-config'
+        - '@bitfe/prettier-config-tailwind'
+        - '@bitfe/typescript-config'
+        - '@bitfe/test-config'
+        - '@bitfe/commitlint-config'
+        - 'templates/nextjs-app'
+        - 'templates/vue-app'
+        - '其他 / 不确定'
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 包版本
+      placeholder: 'e.g. 0.1.0'
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么？
+      description: 描述实际行为。如有错误日志、堆栈，请一并贴出。
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 能给出最小复现仓库或代码片段最佳。
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      placeholder: 'Node 20.11 / pnpm 10.0 / macOS 14'
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他信息
+      description: 截图、相关 PR、临时绕过方案等。
