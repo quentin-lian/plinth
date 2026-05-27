@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        在提问前，请先看一下 [docs/CONSUMING.md](https://github.com/quentin-lian/plinth/blob/master/docs/CONSUMING.md)。
+        在提问前，请先看一下 [docs/CONSUMING.md](https://github.com/quentin-lian/plinth/blob/main/docs/CONSUMING.md)。
 
   - type: textarea
     id: context

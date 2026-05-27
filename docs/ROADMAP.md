@@ -45,7 +45,7 @@
 **目标**：消除当前阻塞，让 B 阶段彻底干净。
 
 - [x] 修复 Vue 模板 lint warning：在 `@plinth/eslint-config` Vue preset 中接入 `eslint-config-prettier`，关掉 `vue/max-attributes-per-line` 与 `vue/singleline-html-element-content-newline`
-- [x] 统一分支策略：保持仓库默认分支为 `master`，将 [.changeset/config.json](../.changeset/config.json) 与 [.github/workflows/](../.github/workflows/) 中的 `main` 全部改为 `master`
+- [x] 统一分支策略：默认分支 `main`，CI workflows / changesets baseBranch 全部对齐
 - [x] 决定 `apps/web` `apps/docs` 去留：删除（推荐，模板已覆盖）或改造为可发布的演示站
 - [x] 替换根 [README.md](../README.md) 内容（目前仍是 `create-turbo` 默认文案）
 
@@ -57,14 +57,16 @@
 
 **目标**：跑通 `@plinth/*` 从源码到业务项目的完整链路，证明流水线可用。
 
-- [ ] 在 GitHub 创建 org（确定真实名称后替换 [.changeset/config.json](../.changeset/config.json) 的 `quentin-lian/plinth` 占位）
-- [ ] 开发者本地 `~/.zshrc` 配 `NPM_TOKEN`（npm Automation token，公开包发布即可）
-- [ ] 推送仓库到 GitHub，CI 跑绿
-- [ ] 首次 `pnpm changeset publish`，把 6 个配置包推到 npm 公开 registry
+- [x] 仓库 `quentin-lian/plinth` 已建好；scope `@plinth` 全量替换完成
+- [x] 切换到 npm 公开 registry（`access: public`），无需 GitHub Packages PAT
+- [ ] 在 npm 注册账号，确认 `@plinth` scope 未被占用并申明
+- [ ] 在仓库 `Settings → Secrets → Actions` 添加 `NPM_TOKEN`（npm Automation token）
+- [ ] `git push origin main` 把所有提交推到 GitHub，CI 跑绿
+- [ ] 首次发布走 changesets 流水线：合入 Release PR → CI 自动 `pnpm release`，9 个包到 npm 公开 registry
 - [ ] 挑 1 个真实业务项目按 [docs/CONSUMING.md](./CONSUMING.md) 接入，验证 lint/format/type/test/commit/CI 全链路
 - [ ] 把试点中遇到的踩坑回写进 CONSUMING.md
 
-**产出**：第 1 个业务项目 PR 合入，所有 gate 绿。
+**产出**：第 1 个业务项目 PR 合入，所有 gate 绿。详细操作见 [docs/RELEASING.md](./RELEASING.md)。
 
 ---
 
@@ -197,7 +199,7 @@
 | ID   | 任务                                              | 阶段 | 预估 |
 | ---- | ------------------------------------------------- | ---- | ---- |
 | B-01 | Vue 模板 lint 接入 eslint-config-prettier         | 0    | 0.5h |
-| B-02 | 统一分支策略为 master                             | 0    | 0.5h |
+| B-02 | 统一分支策略为 main                               | 0    | 0.5h |
 | B-03 | 删除 apps/web 与 apps/docs                        | 0    | 0.5h |
 | B-04 | 重写根 README                                     | 0    | 1h   |
 | A-01 | 首次发布 @plinth/\* 到 npm 公开 registry          | 1    | 0.5d |
@@ -216,7 +218,7 @@
 - **scope 名**：`@plinth`
 - **包管理器**：pnpm 10+
 - **registry**：npm 公开 registry
-- **分支策略**：trunk-based（master 为发布分支，feature 分支短生命周期）
+- **分支策略**：trunk-based（main 为发布分支，feature 分支短生命周期）
 - **版本策略**：semver + changesets，每个公开包每次行为变更必须带 changeset
 - **提交规范**：Conventional Commits（commitlint 强制）
 

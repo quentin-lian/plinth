@@ -85,7 +85,7 @@ pnpm changeset
 
 ## 提交与分支
 
-- **默认分支**：`master`
+- **默认分支**：`main`
 - **提交规范**：Conventional Commits（commitlint 强制）
 - **提交格式**：`type(scope): subject` —— `feat / fix / chore / docs / refactor / perf / test / build / ci / style / revert`
 
@@ -100,10 +100,10 @@ husky pre-commit 会自动跑 lint-staged（prettier --write）。
 
 ## 发布
 
-发布走 changesets 流水线，由 [.github/workflows/release.yml](./.github/workflows/release.yml) 在 `master` 推送时触发：
+发布走 changesets 流水线，由 [.github/workflows/release.yml](./.github/workflows/release.yml) 在 `main` 推送时触发：
 
 1. PR 中 `pnpm changeset` 添加变更说明
-2. PR 合入 `master` 后，bot 自动创建 "Version Packages" PR
+2. PR 合入 `main` 后，bot 自动创建 "Version Packages" PR
 3. 合入 Version PR，CI 自动 `pnpm release`，发布到 npm 公开 registry
 
 详见 [docs/ROADMAP.md](./docs/ROADMAP.md) 的 Phase 1。

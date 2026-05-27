@@ -100,7 +100,7 @@ pnpm changeset
 
 ## 四、PR 流程
 
-1. 从 `master` 创建 feature 分支：`git checkout -b feat/xxx`
+1. 从 `main` 创建 feature 分支：`git checkout -b feat/xxx`
 2. 在分支上提交，每个 PR 尽量保持原子（一个目的）
 3. 跑通本地 gate：
 
@@ -124,12 +124,12 @@ CI 见 [.github/workflows/ci.yml](.github/workflows/ci.yml)。
 
 发布由 [.github/workflows/release.yml](.github/workflows/release.yml) 自动触发：
 
-1. PR 合入 `master` 后，CI 跑 changesets/action
+1. PR 合入 `main` 后，CI 跑 changesets/action
 2. 若 `.changeset/*.md` 中有未发布的 changeset，bot 会自动开一个 "chore(release): version packages" PR
 3. 该 PR 把版本号、CHANGELOG、依赖范围一并更新好
 4. 合入此 PR → CI 自动 `pnpm release` 把包发布到 npm 公开 registry
 
-> ⚠️ 直接在 master 上手动 `pnpm changeset publish` 会绕过 CI，**不要这么干**。
+> ⚠️ 直接在 main 上手动 `pnpm changeset publish` 会绕过 CI，**不要这么干**。
 
 ---
 
