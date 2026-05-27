@@ -1,6 +1,6 @@
 {
   "name": "@plinth/env",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "运行时环境变量校验工具，基于 zod。启动时缺失或非法变量直接抛错，避免线上裸奔。",
   "license": "MIT",
   "type": "module",

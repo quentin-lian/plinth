@@ -1,6 +1,6 @@
 {
   "name": "@plinth/api-client",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "基于 fetch 的 HTTP 客户端：拦截器、鉴权注入、错误归一化、超时、重试、取消、JSON 默认编解码。",
   "license": "MIT",
   "type": "module",

@@ -1,6 +1,6 @@
 {
   "name": "@plinth/utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "通用工具函数集合：debounce/throttle、retry、storage、url、wait/sleep、result 类型等业务高频复用的轻量工具。",
   "license": "MIT",
   "type": "module",
