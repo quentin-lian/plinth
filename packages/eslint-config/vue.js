@@ -1,3 +1,4 @@
+import prettier from 'eslint-config-prettier';
 import vue from 'eslint-plugin-vue';
 import tseslint from 'typescript-eslint';
 import vueParser from 'vue-eslint-parser';
@@ -46,5 +47,21 @@ export default [
     // 配置/脚本类 JS 文件不参与 type-aware 检查，避免 tsconfig 没覆盖时报错
     files: ['**/*.{js,mjs,cjs}'],
     ...tseslint.configs.disableTypeChecked,
+  },
+  // 关闭与 prettier 冲突的格式规则。prettier 是格式化的唯一事实来源。
+  prettier,
+  {
+    files: ['**/*.vue'],
+    rules: {
+      // 与 prettier 直接冲突的 vue 模板格式规则
+      'vue/max-attributes-per-line': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
+      'vue/multiline-html-element-content-newline': 'off',
+      'vue/html-self-closing': 'off',
+      'vue/html-indent': 'off',
+      'vue/html-closing-bracket-newline': 'off',
+      'vue/html-closing-bracket-spacing': 'off',
+      'vue/first-attribute-linebreak': 'off',
+    },
   },
 ];

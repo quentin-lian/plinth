@@ -1,159 +1,115 @@
-# Turborepo starter
+# bitfe-infra
 
-This Turborepo starter is maintained by the Turborepo core team.
+公司前端基础设施仓库。承载一组 `@bitfe/*` 共享配置包，提供给所有业务前端项目（React / Vue）使用，确保整个组织的代码风格、类型、测试、提交、发布流水线统一。
 
-## Using this example
+> 当前迭代阶段与未来计划见 [docs/ROADMAP.md](./docs/ROADMAP.md)。
 
-Run the following command:
+---
 
-```sh
-npx create-turbo@latest
+## 仓库结构
+
+```
+bitfe-infra/
+├── packages/                    可发布的 @bitfe/* 共享配置
+│   ├── eslint-config/           ESLint 9 flat config（base/react/next/vue/node）
+│   ├── prettier-config/         Prettier 3 + 导入排序
+│   ├── prettier-config-tailwind/  Prettier + Tailwind class 排序
+│   ├── typescript-config/       共享 tsconfig（base/nextjs/vue/node/nuxt）
+│   ├── test-config/             Vitest + Testing Library 预设（React/Vue）
+│   └── commitlint-config/       commitlint 规则
+├── templates/                   业务起步模板（不发布）
+│   ├── nextjs-app/              Next.js 16 + React 19
+│   └── vue-app/                 Vue 3.5 + Vite 7
+├── docs/                        接入指南与路线图
+│   ├── CONSUMING.md             业务项目接入步骤
+│   └── ROADMAP.md               演进路线图
+└── .changeset/                  changesets 版本管理
 ```
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## 工具栈
 
-### Apps and Packages
+| 维度       | 选型                                                |
+| ---------- | --------------------------------------------------- |
+| 包管理器   | pnpm 10+                                            |
+| Monorepo   | pnpm workspaces + Turborepo 2                       |
+| Node       | ≥ 18                                                |
+| Lint       | ESLint 9 flat config + typescript-eslint v8         |
+| Format     | Prettier 3.7 + import sort + Tailwind 插件          |
+| TypeScript | 5.9                                                 |
+| Test       | Vitest 4 + jsdom + Testing Library (React 16/Vue 8) |
+| Commit     | commitlint + husky + lint-staged                    |
+| 发布       | changesets + GitHub Packages                        |
+| CI         | GitHub Actions（CI / Release）                      |
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@bitfe/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@bitfe/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@bitfe/typescript-config`: `tsconfig.json`s used throughout the monorepo
+---
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 快速开始（本仓库内开发）
 
-### Utilities
+```bash
+# 安装依赖
+pnpm install
 
-This Turborepo has some additional tools already setup for you:
+# 全量校验
+pnpm format:check
+pnpm lint
+pnpm check-types
+pnpm test
+pnpm build
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
+# 添加一个 changeset（修改 packages/* 必备）
+pnpm changeset
 ```
 
-Without global `turbo`, use your package manager:
+> 每次修改 `packages/*` 中的可发布包，**必须**附带一个 changeset。`templates/*` 不发布，可省略。
 
-```sh
-cd my-turborepo
-npx turbo build
-pnpm dlx turbo build
-pnpm exec turbo build
+---
+
+## 业务项目如何接入
+
+去看 [docs/CONSUMING.md](./docs/CONSUMING.md)，按 5 步即可把 `@bitfe/*` 接到任意业务项目里。
+
+---
+
+## 模板使用
+
+`templates/` 下的两个起步项目为新业务项目提供参考：
+
+- [templates/nextjs-app](./templates/nextjs-app) — Next.js 16 + React 19，端口 3100
+- [templates/vue-app](./templates/vue-app) — Vue 3.5 + Vite 7，端口 3200
+
+> 在脚手架（`create-bitfe-app`，见 ROADMAP Phase 4）就绪前，新业务项目可手动复制对应模板。
+
+---
+
+## 提交与分支
+
+- **默认分支**：`master`
+- **提交规范**：Conventional Commits（commitlint 强制）
+- **提交格式**：`type(scope): subject` —— `feat / fix / chore / docs / refactor / perf / test / build / ci / style / revert`
+
+```bash
+# 例
+git commit -m "feat(eslint-config): add Vue type-aware preset"
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+husky pre-commit 会自动跑 lint-staged（prettier --write）。
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+---
 
-```sh
-turbo build --filter=docs
-```
+## 发布
 
-Without global `turbo`:
+发布走 changesets 流水线，由 [.github/workflows/release.yml](./.github/workflows/release.yml) 在 `master` 推送时触发：
 
-```sh
-npx turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+1. PR 中 `pnpm changeset` 添加变更说明
+2. PR 合入 `master` 后，bot 自动创建 "Version Packages" PR
+3. 合入 Version PR，CI 自动 `pnpm release`，发布到 GitHub Packages
 
-### Develop
+详见 [docs/ROADMAP.md](./docs/ROADMAP.md) 的 Phase 1。
 
-To develop all apps and packages, run the following command:
+---
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+## 许可证
 
-```sh
-cd my-turborepo
-turbo dev
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-pnpm exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+[MIT](./LICENSE)
