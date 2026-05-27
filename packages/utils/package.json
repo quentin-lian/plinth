@@ -1,0 +1,44 @@
+{
+  "name": "@bitfe/utils",
+  "version": "0.0.0",
+  "description": "通用工具函数集合：debounce/throttle、retry、storage、url、wait/sleep、result 类型等业务高频复用的轻量工具。",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "lint": "eslint --max-warnings 0 src",
+    "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@bitfe/eslint-config": "workspace:*",
+    "@bitfe/test-config": "workspace:*",
+    "@bitfe/typescript-config": "workspace:*",
+    "@types/node": "^22",
+    "@vitest/coverage-v8": "^4",
+    "eslint": "^9.39.1",
+    "jsdom": "^29",
+    "typescript": "5.9.2",
+    "vitest": "^4"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
