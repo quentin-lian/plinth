@@ -1,11 +1,11 @@
-# @bitfe/template-nextjs-app
+# @plinth/template-nextjs-app
 
 公司 Next.js 16 起手式模板，预接：
 
-- `@bitfe/eslint-config/next` — ESLint v9 flat config
-- `@bitfe/prettier-config` — 含 import 排序
-- `@bitfe/typescript-config/nextjs.json` — TS 5 严格模式
-- `@bitfe/test-config/vitest-react` — Vitest + jsdom + Testing Library
+- `@plinth/eslint-config/next` — ESLint v9 flat config
+- `@plinth/prettier-config` — 含 import 排序
+- `@plinth/typescript-config/nextjs.json` — TS 5 严格模式
+- `@plinth/test-config/vitest-react` — Vitest + jsdom + Testing Library
 - React 19 + Next 16 App Router
 
 ## 复用方式
@@ -17,20 +17,15 @@
 cp -R templates/nextjs-app/ ../my-app
 cd ../my-app
 
-# 2. 私有源 token（一次性设置在 ~/.zshrc）
-echo 'export GITHUB_TOKEN=<your_pat_with_read:packages>' >> ~/.zshrc
-source ~/.zshrc
-
-# 3. 复制 npmrc 模板
-cp .npmrc.example .npmrc
-
-# 4. 把 workspace 协议替换成已发布的版本
+# 2. 把 workspace 协议替换成已发布的版本
 sed -i '' 's/workspace:\*/^0.1.0/g' package.json   # 按实际版本替换
 
-# 5. 安装并启动
+# 3. 安装并启动
 pnpm install
 pnpm dev   # http://localhost:3100
 ```
+
+> `@plinth/*` 是 npm 公开 registry 的 public 包，无需配置 `.npmrc` / token。
 
 > 详细的"业务工程接入指南"见仓库 [docs/CONSUMING.md](../../docs/CONSUMING.md)。
 
@@ -41,9 +36,9 @@ app/
   layout.tsx       # 根布局
   page.tsx         # 首页
   page.test.tsx    # 示例测试（vitest + RTL + jest-dom）
-eslint.config.js   # 仅 import @bitfe/eslint-config/next
-tsconfig.json      # extends @bitfe/typescript-config/nextjs.json
-vitest.config.ts   # import @bitfe/test-config/vitest-react
+eslint.config.js   # 仅 import @plinth/eslint-config/next
+tsconfig.json      # extends @plinth/typescript-config/nextjs.json
+vitest.config.ts   # import @plinth/test-config/vitest-react
 vitest.d.ts        # jest-dom matcher 类型扩展
 ```
 

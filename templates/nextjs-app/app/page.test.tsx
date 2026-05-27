@@ -6,6 +6,6 @@ import HomePage from './page';
 describe('HomePage', () => {
   it('renders the template heading', () => {
     render(<HomePage />);
-    expect(screen.getByRole('heading', { name: 'bitfe Next.js Template' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'plinth Next.js Template' })).toBeInTheDocument();
   });
 });

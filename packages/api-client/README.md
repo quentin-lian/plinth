@@ -1,17 +1,17 @@
-# @bitfe/api-client
+# @plinth/api-client
 
 基于原生 `fetch` 的 HTTP 客户端。统一鉴权注入、错误归一化、超时、重试、取消、JSON 默认编解码。所有业务端用同一套语义，避免每个项目自己写 wrapper。
 
 ## 安装
 
 ```bash
-pnpm add @bitfe/api-client
+pnpm add @plinth/api-client
 ```
 
 ## 快速上手
 
 ```ts
-import { ApiError, createApiClient } from '@bitfe/api-client';
+import { ApiError, createApiClient } from '@plinth/api-client';
 
 export const api = createApiClient({
   baseUrl: 'https://api.example.com',
@@ -60,7 +60,7 @@ try {
 
 ## 重试策略
 
-默认对 `network` / `timeout` / `5xx` 重试（由 `@bitfe/utils` 的 `retry` 提供指数退避 + 抖动）。`4xx` 不会重试。
+默认对 `network` / `timeout` / `5xx` 重试（由 `@plinth/utils` 的 `retry` 提供指数退避 + 抖动）。`4xx` 不会重试。
 
 自定义：
 
@@ -97,7 +97,7 @@ const data = User.parse(await api.get('/v1/users/me'));
 
 ## 设计要点
 
-- **零核心依赖**：仅依赖 `@bitfe/utils` 的 `retry`
+- **零核心依赖**：仅依赖 `@plinth/utils` 的 `retry`
 - **编解码可关闭**：`responseType: 'response'` 拿到原 `Response`，业务自由处理流式 / SSE
 - **取消优先**：`AbortSignal` 贯穿外部取消、超时、重试
-- **不内置 baseURL 多环境切换**：环境差异由 `@bitfe/env` 注入 baseUrl，分层清晰
+- **不内置 baseURL 多环境切换**：环境差异由 `@plinth/env` 注入 baseUrl，分层清晰

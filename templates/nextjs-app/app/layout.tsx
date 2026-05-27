@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'bitfe Next.js Template',
-  description: 'Starter template wired with @bitfe configs.',
+  title: 'plinth Next.js Template',
+  description: 'Starter template wired with @plinth configs.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

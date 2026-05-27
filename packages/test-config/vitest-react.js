@@ -9,7 +9,7 @@ import base from './vitest.js';
  * - 自动注入 setup-react.js（@testing-library/jest-dom matchers + cleanup）
  *
  * 用法：
- *   import config from '@bitfe/test-config/vitest-react';
+ *   import config from '@plinth/test-config/vitest-react';
  *   export default config;
  */
 export default mergeConfig(base, {

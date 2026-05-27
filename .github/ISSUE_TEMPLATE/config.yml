@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: 接入文档
-    url: https://github.com/bitfe/bitfe-infra/blob/master/docs/CONSUMING.md
-    about: 业务项目如何接入 @bitfe/* 共享配置
+    url: https://github.com/quentin-lian/plinth/blob/master/docs/CONSUMING.md
+    about: 业务项目如何接入 @plinth/* 共享配置
   - name: 路线图
-    url: https://github.com/bitfe/bitfe-infra/blob/master/docs/ROADMAP.md
+    url: https://github.com/quentin-lian/plinth/blob/master/docs/ROADMAP.md
     about: 当前阶段与未来计划

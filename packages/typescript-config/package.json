@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/typescript-config",
+  "name": "@plinth/typescript-config",
   "version": "0.0.0",
   "license": "MIT",
   "files": [
@@ -7,7 +7,6 @@
     "README.md"
   ],
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   }
 }

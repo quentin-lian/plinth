@@ -1,14 +1,14 @@
-# @bitfe/test-config
+# @plinth/test-config
 
 公司前端共享 Vitest 测试预设。基于 `vitest@^4` + `jsdom@^29` + `@vitest/coverage-v8`，提供框架无关、React、Vue 三套预设，并内置 Testing Library 的 `cleanup()` + `jest-dom` matchers。
 
 ## 预设矩阵
 
-| 入口                              | 适用场景                | 包含                                                 |
-| --------------------------------- | ----------------------- | ---------------------------------------------------- |
-| `@bitfe/test-config/vitest`       | 纯 TS/JS 库或 Node 工具 | jsdom + globals + v8 coverage                        |
-| `@bitfe/test-config/vitest-react` | React/Next.js 应用      | 通用预设 + `@vitejs/plugin-react` + `setup-react.js` |
-| `@bitfe/test-config/vitest-vue`   | Vue 3 应用              | 通用预设 + `@vitejs/plugin-vue` + `setup-vue.js`     |
+| 入口                               | 适用场景                | 包含                                                 |
+| ---------------------------------- | ----------------------- | ---------------------------------------------------- |
+| `@plinth/test-config/vitest`       | 纯 TS/JS 库或 Node 工具 | jsdom + globals + v8 coverage                        |
+| `@plinth/test-config/vitest-react` | React/Next.js 应用      | 通用预设 + `@vitejs/plugin-react` + `setup-react.js` |
+| `@plinth/test-config/vitest-vue`   | Vue 3 应用              | 通用预设 + `@vitejs/plugin-vue` + `setup-vue.js`     |
 
 `setup-react.js` / `setup-vue.js` 各自注入：
 
@@ -21,14 +21,14 @@
 
 ```bash
 # 通用 / 纯逻辑
-pnpm add -D @bitfe/test-config vitest @vitest/coverage-v8 jsdom
+pnpm add -D @plinth/test-config vitest @vitest/coverage-v8 jsdom
 
 # React
-pnpm add -D @bitfe/test-config vitest @vitest/coverage-v8 jsdom \
+pnpm add -D @plinth/test-config vitest @vitest/coverage-v8 jsdom \
   @vitejs/plugin-react @testing-library/react @testing-library/jest-dom
 
 # Vue
-pnpm add -D @bitfe/test-config vitest @vitest/coverage-v8 jsdom \
+pnpm add -D @plinth/test-config vitest @vitest/coverage-v8 jsdom \
   @vitejs/plugin-vue @vue/test-utils @testing-library/vue @testing-library/jest-dom
 ```
 
@@ -38,7 +38,7 @@ pnpm add -D @bitfe/test-config vitest @vitest/coverage-v8 jsdom \
 
 ```ts
 // vitest.config.ts
-import config from '@bitfe/test-config/vitest-react';
+import config from '@plinth/test-config/vitest-react';
 
 export default config;
 ```
@@ -49,7 +49,7 @@ export default config;
 // vitest.config.ts
 import { mergeConfig } from 'vitest/config';
 
-import base from '@bitfe/test-config/vitest-react';
+import base from '@plinth/test-config/vitest-react';
 
 export default mergeConfig(base, {
   test: {

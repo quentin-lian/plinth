@@ -25,7 +25,7 @@
 ## 对消费方的影响
 
 <!-- 如果改的是 packages/* 中可发布的包，请说明：
-     - 哪些 @bitfe/* 受影响
+     - 哪些 @plinth/* 受影响
      - 是否需要消费方迁移
      - 是否已添加 changeset（运行 `pnpm changeset`）
 -->

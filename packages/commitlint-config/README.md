@@ -1,4 +1,4 @@
-# `@bitfe/commitlint-config`
+# `@plinth/commitlint-config`
 
 Monorepo 共享的 commitlint 配置。基于 [Conventional Commits](https://www.conventionalcommits.org/)，与 changesets 联动。
 
@@ -23,7 +23,7 @@ Monorepo 共享的 commitlint 配置。基于 [Conventional Commits](https://www
 `commitlint.config.mjs`：
 
 ```js
-export default { extends: ['@bitfe/commitlint-config'] };
+export default { extends: ['@plinth/commitlint-config'] };
 ```
 
 挂上 husky `commit-msg` 钩子：
@@ -36,7 +36,7 @@ chmod +x .husky/commit-msg
 ## 安装
 
 ```bash
-pnpm add -D @commitlint/cli @bitfe/commitlint-config husky
+pnpm add -D @commitlint/cli @plinth/commitlint-config husky
 ```
 
 ## 规则要点

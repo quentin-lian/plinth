@@ -1,5 +1,5 @@
 name: Bug 报告
-description: 报告 @bitfe/* 包或模板的缺陷
+description: 报告 @plinth/* 包或模板的缺陷
 title: 'bug: '
 labels: ['bug', 'triage']
 body:
@@ -13,12 +13,12 @@ body:
     attributes:
       label: 涉及的包 / 模板
       options:
-        - '@bitfe/eslint-config'
-        - '@bitfe/prettier-config'
-        - '@bitfe/prettier-config-tailwind'
-        - '@bitfe/typescript-config'
-        - '@bitfe/test-config'
-        - '@bitfe/commitlint-config'
+        - '@plinth/eslint-config'
+        - '@plinth/prettier-config'
+        - '@plinth/prettier-config-tailwind'
+        - '@plinth/typescript-config'
+        - '@plinth/test-config'
+        - '@plinth/commitlint-config'
         - 'templates/nextjs-app'
         - 'templates/vue-app'
         - '其他 / 不确定'

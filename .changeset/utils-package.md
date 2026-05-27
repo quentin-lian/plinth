@@ -1,8 +1,8 @@
 ---
-'@bitfe/utils': minor
+'@plinth/utils': minor
 ---
 
-新增 `@bitfe/utils`：业务高频复用的轻量工具集，零运行时依赖。
+新增 `@plinth/utils`：业务高频复用的轻量工具集，零运行时依赖。
 
 首版包含：
 

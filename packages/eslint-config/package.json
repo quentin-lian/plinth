@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/eslint-config",
+  "name": "@plinth/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -32,7 +32,6 @@
     "typescript": "^5.0.0"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   }
 }

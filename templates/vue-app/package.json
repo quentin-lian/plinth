@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/template-vue-app",
+  "name": "@plinth/template-vue-app",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -14,15 +14,15 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "prettier": "@bitfe/prettier-config",
+  "prettier": "@plinth/prettier-config",
   "dependencies": {
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@bitfe/eslint-config": "workspace:*",
-    "@bitfe/prettier-config": "workspace:*",
-    "@bitfe/test-config": "workspace:*",
-    "@bitfe/typescript-config": "workspace:*",
+    "@plinth/eslint-config": "workspace:*",
+    "@plinth/prettier-config": "workspace:*",
+    "@plinth/test-config": "workspace:*",
+    "@plinth/typescript-config": "workspace:*",
     "@testing-library/jest-dom": "^6",
     "@testing-library/dom": "^10",
     "@testing-library/vue": "^8",

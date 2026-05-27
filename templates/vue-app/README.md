@@ -1,11 +1,11 @@
-# @bitfe/template-vue-app
+# @plinth/template-vue-app
 
 公司 Vue 3 + Vite 起手式模板，预接：
 
-- `@bitfe/eslint-config/vue` — Vue flat/recommended + type-aware 规则
-- `@bitfe/prettier-config` — 含 import 排序
-- `@bitfe/typescript-config/vue.json` — TS 5 严格 + Vite client types
-- `@bitfe/test-config/vitest-vue` — Vitest + jsdom + @testing-library/vue
+- `@plinth/eslint-config/vue` — Vue flat/recommended + type-aware 规则
+- `@plinth/prettier-config` — 含 import 排序
+- `@plinth/typescript-config/vue.json` — TS 5 严格 + Vite client types
+- `@plinth/test-config/vitest-vue` — Vitest + jsdom + @testing-library/vue
 - Vue 3.5 + Vite 7 + vue-tsc
 
 ## 复用方式
@@ -15,20 +15,15 @@
 cp -R templates/vue-app/ ../my-vue-app
 cd ../my-vue-app
 
-# 2. 私有源 token（一次性设置在 ~/.zshrc）
-echo 'export GITHUB_TOKEN=<your_pat_with_read:packages>' >> ~/.zshrc
-source ~/.zshrc
-
-# 3. 复制 npmrc 模板
-cp .npmrc.example .npmrc
-
-# 4. 把 workspace 协议替换成已发布版本
+# 2. 把 workspace 协议替换成已发布版本
 sed -i '' 's/workspace:\*/^0.1.0/g' package.json
 
-# 5. 安装并启动
+# 3. 安装并启动
 pnpm install
 pnpm dev   # http://localhost:3200
 ```
+
+> `@plinth/*` 是 npm 公开 registry 的 public 包，无需配置 `.npmrc` / token。
 
 > 详细的"业务工程接入指南"见仓库 [docs/CONSUMING.md](../../docs/CONSUMING.md)。
 
@@ -41,10 +36,10 @@ src/
   App.test.ts      # 示例测试（vitest + @testing-library/vue + jest-dom）
   env.d.ts         # vite/client + *.vue 类型声明
   main.ts          # 应用入口
-eslint.config.js   # 仅 import @bitfe/eslint-config/vue
-tsconfig.json      # extends @bitfe/typescript-config/vue.json
+eslint.config.js   # 仅 import @plinth/eslint-config/vue
+tsconfig.json      # extends @plinth/typescript-config/vue.json
 vite.config.ts     # Vite + @ → src alias
-vitest.config.ts   # 在 @bitfe/test-config/vitest-vue 之上加 alias
+vitest.config.ts   # 在 @plinth/test-config/vitest-vue 之上加 alias
 vitest.d.ts        # jest-dom matcher 类型扩展
 ```
 

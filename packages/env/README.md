@@ -1,11 +1,11 @@
-# @bitfe/env
+# @plinth/env
 
 运行时环境变量校验工具，基于 [zod](https://zod.dev/)。启动时缺失或格式错误的变量直接抛错，避免线上裸奔。
 
 ## 安装
 
 ```bash
-pnpm add @bitfe/env zod
+pnpm add @plinth/env zod
 ```
 
 ## 使用
@@ -16,7 +16,7 @@ pnpm add @bitfe/env zod
 // src/lib/env.ts
 import { z } from 'zod';
 
-import { createEnv } from '@bitfe/env';
+import { createEnv } from '@plinth/env';
 
 export const env = createEnv({
   server: z.object({
@@ -42,7 +42,7 @@ const dbUrl = env.DATABASE_URL; // string，仅服务端；浏览器侧为 undef
 ```ts
 import { z } from 'zod';
 
-import { createEnv } from '@bitfe/env';
+import { createEnv } from '@plinth/env';
 
 export const env = createEnv({
   client: z.object({
@@ -58,7 +58,7 @@ export const env = createEnv({
 ```ts
 import { z } from 'zod';
 
-import { createEnv } from '@bitfe/env';
+import { createEnv } from '@plinth/env';
 
 export const env = createEnv({
   server: z.object({

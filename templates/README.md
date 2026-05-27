@@ -1,6 +1,6 @@
-# @bitfe Project Templates
+# @plinth Project Templates
 
-业务工程起手式模板集合。每个模板都已预接 `@bitfe/*` 配置包（eslint / prettier / typescript / test-config），开箱即用。
+业务工程起手式模板集合。每个模板都已预接 `@plinth/*` 配置包（eslint / prettier / typescript / test-config），开箱即用。
 
 ## 可用模板
 
@@ -18,20 +18,15 @@
 cp -R templates/<template-name>/ ../my-new-app
 cd ../my-new-app
 
-# 2. 配置 GitHub Packages token（一次性）
-echo 'export GITHUB_TOKEN=<your_pat_with_read:packages>' >> ~/.zshrc
-source ~/.zshrc
-
-# 3. 复制 npmrc
-cp .npmrc.example .npmrc
-
-# 4. 替换 workspace 协议为已发布版本
+# 2. 替换 workspace 协议为已发布版本
 sed -i '' 's/workspace:\*/^0.1.0/g' package.json
 
-# 5. 安装并启动
+# 3. 安装并启动
 pnpm install
 pnpm dev
 ```
+
+> `@plinth/*` 是 npm 公开 registry 的 public 包，无需配置 `.npmrc` / token。
 
 > 完整接入指南：[docs/CONSUMING.md](../docs/CONSUMING.md)
 
@@ -39,5 +34,5 @@ pnpm dev
 
 - 模板包标记 `"private": true`，不会被 changesets 发布
 - `.changeset/config.json` 的 `ignore` 列表已包含全部模板
-- 模板内部依赖 `@bitfe/*` 使用 `workspace:*`，业务工程拷贝出去后改成 `^x.y.z`
+- 模板内部依赖 `@plinth/*` 使用 `workspace:*`，业务工程拷贝出去后改成 `^x.y.z`
 - 模板示例代码保持**最小可用**：一个页面 + 一个 smoke 测试，避免业务逻辑入侵

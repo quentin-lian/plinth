@@ -1,5 +1,5 @@
 {
-  "extends": "@bitfe/typescript-config/vue.json",
+  "extends": "@plinth/typescript-config/vue.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

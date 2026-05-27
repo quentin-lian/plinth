@@ -9,7 +9,7 @@ import base from './vitest.js';
  * - 自动注入 setup-vue.js（@testing-library/jest-dom matchers + cleanup）
  *
  * 用法：
- *   import config from '@bitfe/test-config/vitest-vue';
+ *   import config from '@plinth/test-config/vitest-vue';
  *   export default config;
  */
 export default mergeConfig(base, {

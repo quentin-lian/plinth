@@ -9,7 +9,7 @@ export default {
   endOfLine: 'lf',
   bracketSpacing: true,
   plugins: ['@ianvs/prettier-plugin-sort-imports'],
-  importOrder: ['<BUILTIN_MODULES>', '<THIRD_PARTY_MODULES>', '', '^@bitfe/(.*)$', '', '^[./]'],
+  importOrder: ['<BUILTIN_MODULES>', '<THIRD_PARTY_MODULES>', '', '^@plinth/(.*)$', '', '^[./]'],
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
   importOrderTypeScriptVersion: '5.0.0',
 };

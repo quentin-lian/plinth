@@ -5,12 +5,12 @@ import { defineConfig } from 'vitest/config';
  * 框架无关，纯 TS/JS 库或工具适用。
  *
  * 用法：
- *   import config from '@bitfe/test-config/vitest';
+ *   import config from '@plinth/test-config/vitest';
  *   export default config;
  *
  * 项目需自行覆写：
  *   import { mergeConfig } from 'vitest/config';
- *   import base from '@bitfe/test-config/vitest';
+ *   import base from '@plinth/test-config/vitest';
  *   export default mergeConfig(base, { test: { include: ['custom/**'] } });
  */
 export default defineConfig({

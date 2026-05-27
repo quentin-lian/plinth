@@ -1,5 +1,5 @@
 {
-  // 推荐安装：开发 bitfe-infra 与 @bitfe/* 接入项目时
+  // 推荐安装：开发 plinth 与 @plinth/* 接入项目时
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",

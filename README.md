@@ -1,6 +1,6 @@
-# bitfe-infra
+# plinth
 
-公司前端基础设施仓库。承载一组 `@bitfe/*` 共享配置包，提供给所有业务前端项目（React / Vue）使用，确保整个组织的代码风格、类型、测试、提交、发布流水线统一。
+公司前端基础设施仓库。承载一组 `@plinth/*` 共享配置包，提供给所有业务前端项目（React / Vue）使用，确保整个组织的代码风格、类型、测试、提交、发布流水线统一。
 
 > 当前迭代阶段与未来计划见 [docs/ROADMAP.md](./docs/ROADMAP.md)。
 
@@ -9,8 +9,8 @@
 ## 仓库结构
 
 ```
-bitfe-infra/
-├── packages/                    可发布的 @bitfe/* 共享配置
+plinth/
+├── packages/                    可发布的 @plinth/* 共享配置
 │   ├── eslint-config/           ESLint 9 flat config（base/react/next/vue/node）
 │   ├── prettier-config/         Prettier 3 + 导入排序
 │   ├── prettier-config-tailwind/  Prettier + Tailwind class 排序
@@ -40,7 +40,7 @@ bitfe-infra/
 | TypeScript | 5.9                                                 |
 | Test       | Vitest 4 + jsdom + Testing Library (React 16/Vue 8) |
 | Commit     | commitlint + husky + lint-staged                    |
-| 发布       | changesets + GitHub Packages                        |
+| 发布       | changesets + npm 公开 registry                      |
 | CI         | GitHub Actions（CI / Release）                      |
 
 ---
@@ -68,7 +68,7 @@ pnpm changeset
 
 ## 业务项目如何接入
 
-去看 [docs/CONSUMING.md](./docs/CONSUMING.md)，按 5 步即可把 `@bitfe/*` 接到任意业务项目里。
+去看 [docs/CONSUMING.md](./docs/CONSUMING.md)，按 5 步即可把 `@plinth/*` 接到任意业务项目里。
 
 ---
 
@@ -79,7 +79,7 @@ pnpm changeset
 - [templates/nextjs-app](./templates/nextjs-app) — Next.js 16 + React 19，端口 3100
 - [templates/vue-app](./templates/vue-app) — Vue 3.5 + Vite 7，端口 3200
 
-> 在脚手架（`create-bitfe-app`，见 ROADMAP Phase 4）就绪前，新业务项目可手动复制对应模板。
+> 在脚手架（`create-plinth-app`，见 ROADMAP Phase 4）就绪前，新业务项目可手动复制对应模板。
 
 ---
 
@@ -104,7 +104,7 @@ husky pre-commit 会自动跑 lint-staged（prettier --write）。
 
 1. PR 中 `pnpm changeset` 添加变更说明
 2. PR 合入 `master` 后，bot 自动创建 "Version Packages" PR
-3. 合入 Version PR，CI 自动 `pnpm release`，发布到 GitHub Packages
+3. 合入 Version PR，CI 自动 `pnpm release`，发布到 npm 公开 registry
 
 详见 [docs/ROADMAP.md](./docs/ROADMAP.md) 的 Phase 1。
 

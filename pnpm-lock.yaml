@@ -8,10 +8,10 @@ importers:
 
   .:
     devDependencies:
-      '@bitfe/commitlint-config':
+      '@plinth/commitlint-config':
         specifier: workspace:*
         version: link:packages/commitlint-config
-      '@bitfe/prettier-config':
+      '@plinth/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
       '@changesets/changelog-github':
@@ -47,17 +47,17 @@ importers:
 
   packages/api-client:
     dependencies:
-      '@bitfe/utils':
+      '@plinth/utils':
         specifier: workspace:*
         version: link:../utils
     devDependencies:
-      '@bitfe/eslint-config':
+      '@plinth/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@bitfe/test-config':
+      '@plinth/test-config':
         specifier: workspace:*
         version: link:../test-config
-      '@bitfe/typescript-config':
+      '@plinth/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -87,13 +87,13 @@ importers:
 
   packages/env:
     devDependencies:
-      '@bitfe/eslint-config':
+      '@plinth/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@bitfe/test-config':
+      '@plinth/test-config':
         specifier: workspace:*
         version: link:../test-config
-      '@bitfe/typescript-config':
+      '@plinth/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -168,7 +168,7 @@ importers:
 
   packages/prettier-config-tailwind:
     dependencies:
-      '@bitfe/prettier-config':
+      '@plinth/prettier-config':
         specifier: workspace:*
         version: link:../prettier-config
       prettier:
@@ -215,13 +215,13 @@ importers:
 
   packages/utils:
     devDependencies:
-      '@bitfe/eslint-config':
+      '@plinth/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@bitfe/test-config':
+      '@plinth/test-config':
         specifier: workspace:*
         version: link:../test-config
-      '@bitfe/typescript-config':
+      '@plinth/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -255,16 +255,16 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
-      '@bitfe/eslint-config':
+      '@plinth/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@bitfe/prettier-config':
+      '@plinth/prettier-config':
         specifier: workspace:*
         version: link:../../packages/prettier-config
-      '@bitfe/test-config':
+      '@plinth/test-config':
         specifier: workspace:*
         version: link:../../packages/test-config
-      '@bitfe/typescript-config':
+      '@plinth/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@testing-library/dom':
@@ -313,16 +313,16 @@ importers:
         specifier: ^3.5.13
         version: 3.5.34(typescript@5.9.2)
     devDependencies:
-      '@bitfe/eslint-config':
+      '@plinth/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@bitfe/prettier-config':
+      '@plinth/prettier-config':
         specifier: workspace:*
         version: link:../../packages/prettier-config
-      '@bitfe/test-config':
+      '@plinth/test-config':
         specifier: workspace:*
         version: link:../../packages/test-config
-      '@bitfe/typescript-config':
+      '@plinth/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@testing-library/dom':

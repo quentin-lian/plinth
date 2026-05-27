@@ -1,8 +1,8 @@
 # 贡献指南
 
-感谢你愿意为 `bitfe-infra` 贡献代码 / 文档 / 反馈。本文说明本仓库的工作流，目标是让任何成员都能在 30 分钟内提交第一个 PR。
+感谢你愿意为 `plinth` 贡献代码 / 文档 / 反馈。本文说明本仓库的工作流，目标是让任何成员都能在 30 分钟内提交第一个 PR。
 
-> 你只是要把 `@bitfe/*` 接入业务项目？请直接看 [docs/CONSUMING.md](./docs/CONSUMING.md)，本文档不适合你。
+> 你只是要把 `@plinth/*` 接入业务项目？请直接看 [docs/CONSUMING.md](./docs/CONSUMING.md)，本文档不适合你。
 
 ---
 
@@ -17,8 +17,8 @@
 ### 启动
 
 ```bash
-git clone https://github.com/bitfe/bitfe-infra.git
-cd bitfe-infra
+git clone https://github.com/quentin-lian/plinth.git
+cd plinth
 pnpm install
 ```
 
@@ -35,8 +35,8 @@ pnpm test           # 全 workspace vitest
 pnpm build          # 全 workspace 构建（如有）
 
 # 调试单个包
-pnpm --filter @bitfe/eslint-config build
-pnpm --filter @bitfe/template-vue-app dev
+pnpm --filter @plinth/eslint-config build
+pnpm --filter @plinth/template-vue-app dev
 ```
 
 ---
@@ -80,7 +80,7 @@ type(scope): subject
 
 ## 三、Changesets
 
-`packages/*` 是发布到 GitHub Packages 的公开包，每次行为变更都要附 changeset：
+`packages/*` 是发布到 npm 公开 registry 的公开包，每次行为变更都要附 changeset：
 
 ```bash
 pnpm changeset
@@ -127,7 +127,7 @@ CI 见 [.github/workflows/ci.yml](.github/workflows/ci.yml)。
 1. PR 合入 `master` 后，CI 跑 changesets/action
 2. 若 `.changeset/*.md` 中有未发布的 changeset，bot 会自动开一个 "chore(release): version packages" PR
 3. 该 PR 把版本号、CHANGELOG、依赖范围一并更新好
-4. 合入此 PR → CI 自动 `pnpm release` 把包发布到 GitHub Packages
+4. 合入此 PR → CI 自动 `pnpm release` 把包发布到 npm 公开 registry
 
 > ⚠️ 直接在 master 上手动 `pnpm changeset publish` 会绕过 CI，**不要这么干**。
 
@@ -147,7 +147,7 @@ pnpm install   # 重新跑 prepare
 ls .husky/     # 确认 commit-msg、pre-commit 存在
 ```
 
-### 找不到 `@bitfe/xxx`
+### 找不到 `@plinth/xxx`
 
 workspace 内是 symlink，运行 `pnpm install` 即可。
 

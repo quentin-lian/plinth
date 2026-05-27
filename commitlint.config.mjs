@@ -1,1 +1,1 @@
-export default { extends: ['@bitfe/commitlint-config'] };
+export default { extends: ['@plinth/commitlint-config'] };

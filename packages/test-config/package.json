@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/test-config",
+  "name": "@plinth/test-config",
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
@@ -52,8 +52,7 @@
     }
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "devDependencies": {
     "@testing-library/dom": "^10",

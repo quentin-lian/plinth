@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/env",
+  "name": "@plinth/env",
   "version": "0.0.0",
   "description": "运行时环境变量校验工具，基于 zod。启动时缺失或非法变量直接抛错，避免线上裸奔。",
   "license": "MIT",
@@ -29,9 +29,9 @@
     "zod": "^3.22.0 || ^4.0.0"
   },
   "devDependencies": {
-    "@bitfe/eslint-config": "workspace:*",
-    "@bitfe/test-config": "workspace:*",
-    "@bitfe/typescript-config": "workspace:*",
+    "@plinth/eslint-config": "workspace:*",
+    "@plinth/test-config": "workspace:*",
+    "@plinth/typescript-config": "workspace:*",
     "@types/node": "^22",
     "@vitest/coverage-v8": "^4",
     "eslint": "^9.39.1",
@@ -40,7 +40,6 @@
     "zod": "^3.23.0"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   }
 }

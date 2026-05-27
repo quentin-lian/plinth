@@ -1,51 +1,27 @@
 # 业务项目接入指南
 
-把 `@bitfe/*` 一组共享配置接到一个新的或已有的业务项目里，5 步即可。
+把 `@plinth/*` 一组共享配置接到一个新的或已有的业务项目里，3 步即可。
+
+> `@plinth/*` 发布在 **npm 公开 registry**，可见性 **public**。任何人 `pnpm add` 即可装到。无需 token、无需 `.npmrc`。
 
 ---
 
-## 一、准备 GitHub PAT（每位开发者一次性）
-
-`@bitfe/*` 发布在 **GitHub Packages**，是私有 registry，安装时需要带 token。
-
-1. 打开 https://github.com/settings/tokens 生成一个 **Classic** PAT。
-2. 勾选 scope：
-   - `read:packages`（必选，安装依赖）
-   - `write:packages`（仅当你要发布时勾）
-3. 把 token 写进 `~/.zshrc`（或 `~/.bashrc`）：
-
-   ```bash
-   export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxx
-   ```
-
-   然后 `source ~/.zshrc`。
-
-> CI 环境（GitHub Actions）不需要做这步，会自动注入 `GITHUB_TOKEN`。
-
----
-
-## 二、在业务项目根写 `.npmrc`
-
-```
-@bitfe:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
-```
-
-> `${GITHUB_TOKEN}` 用环境变量占位，**不要写死 token**。这个文件可以提交进 git。
-
----
-
-## 三、安装共享配置
+## 一、安装共享配置
 
 ```bash
 # 按需选择
-pnpm add -D @bitfe/eslint-config @bitfe/typescript-config @bitfe/prettier-config
+pnpm add -D @plinth/eslint-config @plinth/typescript-config @plinth/prettier-config
 
 # Tailwind 项目额外加：
-pnpm add -D @bitfe/prettier-config-tailwind
+pnpm add -D @plinth/prettier-config-tailwind
 
 # 用 commitlint 的话：
-pnpm add -D @bitfe/commitlint-config @commitlint/cli husky
+pnpm add -D @plinth/commitlint-config @commitlint/cli husky
+
+# 业务运行时（按需）：
+pnpm add @plinth/env zod                    # 环境变量校验
+pnpm add @plinth/api-client                 # HTTP 客户端
+pnpm add @plinth/utils                      # 通用工具
 ```
 
 同时安装对应 peer：
@@ -56,43 +32,43 @@ pnpm add -D eslint typescript prettier
 
 ---
 
-## 四、接入配置
+## 二、接入配置
 
-### 4.1 ESLint（v9 flat config）
+### 2.1 ESLint（v9 flat config）
 
 `eslint.config.js`：
 
 ```js
 // Next.js 项目
-import config from '@bitfe/eslint-config/next';
+import config from '@plinth/eslint-config/next';
 export default config;
 
 // 普通 React 项目
-import config from '@bitfe/eslint-config/react';
+import config from '@plinth/eslint-config/react';
 export default config;
 
 // Vue 3 项目
-import config from '@bitfe/eslint-config/vue';
+import config from '@plinth/eslint-config/vue';
 export default config;
 
 // Node.js 服务/工具
-import config from '@bitfe/eslint-config/node';
+import config from '@plinth/eslint-config/node';
 export default config;
 ```
 
-### 4.2 TypeScript
+### 2.2 TypeScript
 
 `tsconfig.json`：
 
 ```jsonc
 {
   // 按项目类型选一个
-  "extends": "@bitfe/typescript-config/nextjs.json",
-  // "extends": "@bitfe/typescript-config/react.json",
-  // "extends": "@bitfe/typescript-config/react-library.json",
-  // "extends": "@bitfe/typescript-config/vue.json",
-  // "extends": "@bitfe/typescript-config/nuxt.json",
-  // "extends": "@bitfe/typescript-config/node.json",
+  "extends": "@plinth/typescript-config/nextjs.json",
+  // "extends": "@plinth/typescript-config/react.json",
+  // "extends": "@plinth/typescript-config/react-library.json",
+  // "extends": "@plinth/typescript-config/vue.json",
+  // "extends": "@plinth/typescript-config/nuxt.json",
+  // "extends": "@plinth/typescript-config/node.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": { "@/*": ["./src/*"] },
@@ -101,24 +77,24 @@ export default config;
 }
 ```
 
-### 4.3 Prettier
+### 2.3 Prettier
 
 `package.json`：
 
 ```json
 {
-  "prettier": "@bitfe/prettier-config"
+  "prettier": "@plinth/prettier-config"
 }
 ```
 
-Tailwind 项目改成 `@bitfe/prettier-config-tailwind`。
+Tailwind 项目改成 `@plinth/prettier-config-tailwind`。
 
-### 4.4 Commitlint + Husky（可选）
+### 2.4 Commitlint + Husky（可选）
 
 `commitlint.config.mjs`：
 
 ```js
-export default { extends: ['@bitfe/commitlint-config'] };
+export default { extends: ['@plinth/commitlint-config'] };
 ```
 
 `package.json` 里加：
@@ -139,7 +115,7 @@ chmod +x .husky/commit-msg
 
 ---
 
-## 五、加常用脚本
+## 三、加常用脚本
 
 `package.json` `scripts`：
 
@@ -156,7 +132,7 @@ chmod +x .husky/commit-msg
 
 ---
 
-## 六、环境变量约定
+## 四、环境变量约定
 
 业务项目的运行时配置走 **环境变量**，不要硬编码到源码。
 
@@ -190,17 +166,17 @@ cp .env.example .env.local
 
 ### 运行时校验（推荐）
 
-用 [`@bitfe/env`](../packages/env/README.md) 在启动时校验 env，缺失或非法值直接抛错，避免线上裸奔。
+用 [`@plinth/env`](../packages/env/README.md) 在启动时校验 env，缺失或非法值直接抛错，避免线上裸奔。
 
 ```bash
-pnpm add @bitfe/env zod
+pnpm add @plinth/env zod
 ```
 
 ```ts
 // src/lib/env.ts （Next.js 示例）
 import { z } from 'zod';
 
-import { createEnv } from '@bitfe/env';
+import { createEnv } from '@plinth/env';
 
 export const env = createEnv({
   server: z.object({
@@ -215,7 +191,7 @@ export const env = createEnv({
 
 Vite/Vue 项目把 `clientPrefix` 改为 `'VITE_'`，并把 `source` 改为 `import.meta.env`。
 
-服务端 schema 中的变量在浏览器侧自动置 `undefined`，不会泄露。详见 [@bitfe/env README](../packages/env/README.md)。
+服务端 schema 中的变量在浏览器侧自动置 `undefined`，不会泄露。详见 [@plinth/env README](../packages/env/README.md)。
 
 模板参考：
 
@@ -226,21 +202,8 @@ Vite/Vue 项目把 `clientPrefix` 改为 `'VITE_'`，并把 `source` 改为 `imp
 
 ## 常见问题
 
-**Q: `pnpm install` 报 401 / 403？**
-A: PAT 没注入或没勾 `read:packages`。先 `echo $GITHUB_TOKEN` 验证，再去 GitHub 重发 token。
-
 **Q: 想升级配置版本？**
-A: `pnpm up @bitfe/eslint-config@latest`。所有 `@bitfe/*` 都遵循 semver，看 [bitfe-infra CHANGELOG](https://github.com/bitfe/bitfe-infra/releases) 了解破坏性变更。
+A: `pnpm up @plinth/eslint-config@latest`。所有 `@plinth/*` 都遵循 semver，看 [plinth releases](https://github.com/quentin-lian/plinth/releases) 了解破坏性变更。
 
-**Q: CI 报 "Cannot find package '@bitfe/...'"？**
-A: 检查 CI 里有没有这两步：
-
-```yaml
-- uses: actions/setup-node@v4
-  with:
-    registry-url: https://npm.pkg.github.com
-    scope: '@bitfe'
-- run: pnpm install
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
+**Q: CI 装不上 `@plinth/*`？**
+A: `@plinth/*` 是 **npm 公开 registry** 的 public 包，任何 CI 环境直接 `pnpm install` 即可，不需要 token / `.npmrc`。如果你的 CI 配了内网镜像，确认那个镜像同步了 npm 公开 registry（一般都同步）。

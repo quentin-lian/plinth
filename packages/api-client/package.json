@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/api-client",
+  "name": "@plinth/api-client",
   "version": "0.0.0",
   "description": "基于 fetch 的 HTTP 客户端：拦截器、鉴权注入、错误归一化、超时、重试、取消、JSON 默认编解码。",
   "license": "MIT",
@@ -27,12 +27,12 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@bitfe/utils": "workspace:*"
+    "@plinth/utils": "workspace:*"
   },
   "devDependencies": {
-    "@bitfe/eslint-config": "workspace:*",
-    "@bitfe/test-config": "workspace:*",
-    "@bitfe/typescript-config": "workspace:*",
+    "@plinth/eslint-config": "workspace:*",
+    "@plinth/test-config": "workspace:*",
+    "@plinth/typescript-config": "workspace:*",
     "@types/node": "^22",
     "@vitest/coverage-v8": "^4",
     "eslint": "^9.39.1",
@@ -40,7 +40,6 @@
     "vitest": "^4"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   }
 }

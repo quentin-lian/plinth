@@ -1,5 +1,5 @@
 {
-  "name": "@bitfe/prettier-config-tailwind",
+  "name": "@plinth/prettier-config-tailwind",
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
@@ -15,11 +15,10 @@
     "prettier": "^3"
   },
   "dependencies": {
-    "@bitfe/prettier-config": "workspace:*",
+    "@plinth/prettier-config": "workspace:*",
     "prettier-plugin-tailwindcss": "^0.6.11"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   }
 }

@@ -1,4 +1,4 @@
-import { retry as retryFn } from '@bitfe/utils';
+import { retry as retryFn } from '@plinth/utils';
 
 import { ApiError } from './errors.js';
 import type {

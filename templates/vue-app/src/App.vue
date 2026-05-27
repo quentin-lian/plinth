@@ -6,7 +6,7 @@ const count = ref(0);
 
 <template>
   <main>
-    <h1>bitfe Vue Template</h1>
+    <h1>plinth Vue Template</h1>
     <p>Edit src/App.vue to start building.</p>
     <button type="button" @click="count++">count is {{ count }}</button>
   </main>

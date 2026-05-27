@@ -1,11 +1,11 @@
-# @bitfe/utils
+# @plinth/utils
 
 业务高频复用的轻量工具集。零运行时依赖，全 ESM，tree-shakeable（`sideEffects: false`）。
 
 ## 安装
 
 ```bash
-pnpm add @bitfe/utils
+pnpm add @plinth/utils
 ```
 
 ## API 一览
@@ -23,7 +23,7 @@ pnpm add @bitfe/utils
 ### sleep
 
 ```ts
-import { sleep } from '@bitfe/utils';
+import { sleep } from '@plinth/utils';
 
 await sleep(300);
 await sleep(1000, { signal: controller.signal }); // 可被中止
@@ -32,7 +32,7 @@ await sleep(1000, { signal: controller.signal }); // 可被中止
 ### debounce / throttle
 
 ```ts
-import { debounce } from '@bitfe/utils';
+import { debounce } from '@plinth/utils';
 
 const onSearch = debounce((q: string) => fetch(`/api?q=${q}`), 200);
 input.addEventListener('input', (e) => onSearch((e.target as HTMLInputElement).value));
@@ -46,7 +46,7 @@ onSearch.cancel();
 ### retry
 
 ```ts
-import { retry } from '@bitfe/utils';
+import { retry } from '@plinth/utils';
 
 const data = await retry(() => fetch('/api').then((r) => r.json()), {
   retries: 5,
@@ -58,7 +58,7 @@ const data = await retry(() => fetch('/api').then((r) => r.json()), {
 ### Result
 
 ```ts
-import { safe } from '@bitfe/utils';
+import { safe } from '@plinth/utils';
 
 const r = await safe(() => api.fetchUser(id));
 if (!r.ok) {
@@ -71,7 +71,7 @@ return r.value;
 ### Storage
 
 ```ts
-import { safeLocalStorage } from '@bitfe/utils';
+import { safeLocalStorage } from '@plinth/utils';
 
 safeLocalStorage.set('settings', { theme: 'dark' });
 const settings = safeLocalStorage.get<{ theme: string }>('settings');
@@ -81,7 +81,7 @@ const settings = safeLocalStorage.get<{ theme: string }>('settings');
 ### URL
 
 ```ts
-import { buildQuery, withQuery } from '@bitfe/utils';
+import { buildQuery, withQuery } from '@plinth/utils';
 
 buildQuery({ a: 1, b: undefined, c: ['x', 'y'] }); // 'a=1&c=x&c=y'
 withQuery('/users?page=1', { page: 2, size: 20 }); // '/users?page=2&size=20'

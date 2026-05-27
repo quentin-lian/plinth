@@ -1,8 +1,8 @@
 {
-  "name": "bitfe-infra",
+  "name": "plinth",
   "private": true,
   "packageManager": "pnpm@10.0.0",
-  "prettier": "@bitfe/prettier-config",
+  "prettier": "@plinth/prettier-config",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -28,8 +28,8 @@
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^21.0.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
-    "@bitfe/commitlint-config": "workspace:*",
-    "@bitfe/prettier-config": "workspace:*",
+    "@plinth/commitlint-config": "workspace:*",
+    "@plinth/prettier-config": "workspace:*",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.5",
     "prettier": "^3.7.4",

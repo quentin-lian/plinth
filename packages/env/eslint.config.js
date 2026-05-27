@@ -1,3 +1,3 @@
-import config from '@bitfe/eslint-config/node';
+import config from '@plinth/eslint-config/node';
 
 export default config;

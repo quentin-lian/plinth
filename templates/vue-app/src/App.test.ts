@@ -6,7 +6,7 @@ import App from './App.vue';
 describe('App', () => {
   it('renders the template heading', () => {
     render(App);
-    expect(screen.getByRole('heading', { name: 'bitfe Vue Template' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'plinth Vue Template' })).toBeInTheDocument();
   });
 
   it('increments the counter on click', async () => {
