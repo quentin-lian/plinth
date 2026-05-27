@@ -89,7 +89,7 @@
 #### 2.3 环境变量规范
 
 - [x] 模板新增 `.env.example`
-- [ ] 引入 `@bitfe/env`：基于 zod 的运行时 env schema 校验
+- [x] 引入 `@bitfe/env`：基于 zod 的运行时 env schema 校验
 
 **产出**：业务项目从"接入"到"长期维护"的协作链路自动化。
 

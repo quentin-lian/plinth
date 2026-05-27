@@ -190,18 +190,32 @@ cp .env.example .env.local
 
 ### 运行时校验（推荐）
 
-后续 `@bitfe/env` 会提供基于 zod 的运行时校验（启动时缺变量直接报错，避免线上裸奔）。当前阶段可在项目内手写：
+用 [`@bitfe/env`](../packages/env/README.md) 在启动时校验 env，缺失或非法值直接抛错，避免线上裸奔。
+
+```bash
+pnpm add @bitfe/env zod
+```
 
 ```ts
+// src/lib/env.ts （Next.js 示例）
 import { z } from 'zod';
 
-const env = z
-  .object({
+import { createEnv } from '@bitfe/env';
+
+export const env = createEnv({
+  server: z.object({
+    DATABASE_URL: z.string().url(),
+    SESSION_SECRET: z.string().min(32),
+  }),
+  client: z.object({
     NEXT_PUBLIC_API_BASE_URL: z.string().url(),
-    DATABASE_URL: z.string().min(1),
-  })
-  .parse(process.env);
+  }),
+});
 ```
+
+Vite/Vue 项目把 `clientPrefix` 改为 `'VITE_'`，并把 `source` 改为 `import.meta.env`。
+
+服务端 schema 中的变量在浏览器侧自动置 `undefined`，不会泄露。详见 [@bitfe/env README](../packages/env/README.md)。
 
 模板参考：
 
