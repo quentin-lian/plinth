@@ -104,7 +104,7 @@
 #### 3.1 共享工具层（先做，门槛低、收益直接）
 
 - [x] `@bitfe/utils` — 通用工具函数（date、url、storage、debounce、retry）
-- [ ] `@bitfe/api-client` — 基于 fetch 的 HTTP 客户端（鉴权、拦截、错误码、重试、取消）
+- [x] `@bitfe/api-client` — 基于 fetch 的 HTTP 客户端（鉴权、拦截、错误码、重试、取消）
 - [ ] `@bitfe/icons` — 图标库（SVG sprite + tree-shaking）
 
 #### 3.2 共享 UI（React 优先，Vue 跟进）
