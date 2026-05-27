@@ -84,7 +84,7 @@
 
 - [x] Renovate（推荐）或 Dependabot 配置：每周聚合 PR、自动 patch、major 单独通知
 - [x] `pnpm audit` 接入 CI，高危漏洞阻断合并
-- [ ] License 检查（`license-checker` 或 `pnpm licenses list`）
+- [x] License 检查（`scripts/check-licenses.mjs`，prod 依赖白名单巡检）
 
 #### 2.3 环境变量规范
 

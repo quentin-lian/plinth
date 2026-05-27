@@ -51,3 +51,6 @@ jobs:
       - name: Audit dependencies (high+)
         run: pnpm audit --audit-level=high --prod
         continue-on-error: false
+
+      - name: Check production licenses
+        run: pnpm check-licenses
